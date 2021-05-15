@@ -115,3 +115,57 @@ function slugify(title) {
 
     return slug;
 }
+
+// array slice() method (task 14)
+
+const fruits = ['apple', 'plum', 'pear', 'orange', 'banana'];
+
+const firstTwoEls = fruits.slice(0,2);
+const nonExtremeEls = fruits.slice(1,4);
+const lastThreeEls = fruits.slice(2, 5);
+
+// concat() method (task 15)
+
+const oldClients = ['Mango', 'Ajax', 'Poly', 'Kiwi'];
+const newClients = ['Peach', 'Houston'];
+
+const allClients = oldClients.concat(newClients);
+
+// concat() + slice() method (task 16)
+
+
+function makeArray(firstArray, secondArray, maxLength) {
+
+  const array = firstArray.concat(secondArray);
+  const newArray = array.slice(0, maxLength);
+	return newArray;
+}
+
+// for method (task 17)
+
+const start = 3;
+const end = 7;
+
+for (let i = start; i <= end; i += 1) { 
+  console.log(i);
+}
+
+// for + total method (task 18)
+
+function calculateTotal(number) {
+ 
+  let totalSum = 0;
+  const numbers = [];
+
+for (let i = 1; i <= number.length; i += 1) {
+  numbers.push(`${i}`);
+}
+
+console.log('numbers: ', numbers);
+ 
+  totalSum += numbers;
+
+ return totalSum;
+}
+
+
