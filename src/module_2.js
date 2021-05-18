@@ -215,12 +215,24 @@ function createArrayOfNumbers(min, max) {
 // filter array method (task 23)
 
 function filterArray(numbers, value) {
-const newArray = [];
+  const filteredArray = [];
   
-  for (let i = 0; i < numbers.length; i += 1){
-  	newArray.push(i > value); 
+  for (const number of numbers){
+  	if (number > value){
+    filteredArray.push(number);
+ 
+    }  
   }
-  
-  return newArray; 
+ return filteredArray;
+}	
+
+// includes() array method (task 24)
+
+function checkFruit(fruit) {
+  const fruits = ["apple", "plum", "pear", "orange"];
+
+  return fruits.includes(fruit);
 }
+
+// common elements in array method (task 25)
 
