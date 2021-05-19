@@ -236,3 +236,61 @@ function checkFruit(fruit) {
 
 // common elements in array method (task 25)
 
+function getCommonElements(array1, array2) {
+  let commonArray = [];
+  
+  for (const element of array1){
+    if (array1.includes(element) && array2.includes(element)){
+      commonArray.push(element); 
+    }	
+  }     
+  return commonArray;
+}
+
+// for...of method (task 26)
+
+function calculateTotalPrice(order) {
+  let total = 0;
+
+  for (const ordered of order) {
+    total += ordered;
+  }
+
+  return total;
+}
+
+// even numbers method (task 29)
+
+function getEvenNumbers(start, end) {
+
+  let evenArray = [];
+  
+  for (i = start; i <= end; i += 1){
+	if (i % 2 === 0){
+		evenArray.push(i);    
+    }  
+  }
+  return evenArray;
+}
+  
+// find number method (task 31)
+
+function findNumber(start, end, divisor) {
+
+  for (let i = start; i < end; i += 1) {
+    if (i % divisor === 0) {
+      return i;
+    }
+  }
+}
+
+// not .includes() method (task 32)
+
+function includes(array, value) {
+
+  for (const arr of array){
+  	if (value === arr){
+    	return true;}
+  }
+      return false;  
+}
