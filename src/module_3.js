@@ -431,3 +431,208 @@ function calculateMeanTemperature(forecast) {
 
   return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
 }
+
+// spread in objects task 27
+
+const scores = [89, 64, 42, 17, 93, 51, 26];
+
+
+const bestScore = Math.max(...scores);
+const worstScore = Math.min(...scores);
+
+// joining array using spread task 28
+
+const firstGroupScores = [64, 42, 93];
+const secondGroupScores = [89, 14, 51, 26];
+const thirdGroupScores = [29, 47, 18, 97, 81];
+
+const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
+
+const bestScore = Math.max(...allScores);
+const worstScore = Math.min(...allScores);
+
+// spread/join props overwrite task 29
+
+const defaultSettings = {
+  theme: 'light',
+  public: true,
+  withPassword: false,
+  minNumberOfQuestions: 10,
+  timePerQuestion: 60,
+};
+const overrideSettings = {
+  public: false,
+  withPassword: true,
+  timePerQuestion: 30,
+};
+
+const finalSettings = { ...defaultSettings, ...overrideSettings };
+
+// props sequence in objects task 30
+
+
+function makeTask(data) {
+  const completed = false;
+  const category = 'General';
+  const priority = 'Normal';
+  
+  const inputData = {completed, category, priority,  ...data};
+  
+  return inputData;  
+}
+
+// sum of arguments task 31
+
+function add(...args) {
+  const sum = args.reduce((a, b) => a + b, 0);
+  	return sum;
+}
+
+// sum or arguments > number task 32
+
+
+function addOverNum(number,...args) {
+  let total = 0;
+
+  for (const arg of args) {
+    if(arg > number){
+    	total += arg;
+    }
+  }
+  return total;
+
+}
+
+// array includes ...rest args task 33
+
+function findMatches(...args) {
+  const matches = [];
+  
+  
+  for (let a = 0; a <= args.length; a += 1){
+  	if (args[0].includes(args[a])){
+    	matches.push(args[a]);
+    }
+  }
+
+  return matches;
+}
+
+// adding methods to objects task 34
+
+const bookShelf = {
+ 
+  books: ['The last kingdom', 'The guardian of dreams'],
+  getBooks() {
+    return 'Returning all books';
+  },
+  addBook(bookName) {
+    return `Adding book ${bookName}`;
+  },
+  removeBook(bookName){
+  	return `Deleting book ${bookName}`;
+  },
+  updateBook(oldName, newName){
+  	return `Updating book ${oldName} to ${newName}`;
+  }
+
+};
+
+// changing elements in arrays task 35
+
+const bookShelf = {
+  books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+  updateBook(oldName, newName) {
+    const bookIndex = this.books.indexOf(oldName);
+    this.books.splice(bookIndex, 1, newName);
+  },
+};
+
+// task 36 atTheOldToad
+
+const atTheOldToad = {
+  potions: []
+};
+
+// task 37 atTheOldToad getting potions array
+
+const atTheOldToad = {
+  
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  
+  getPotions(){
+  	return this.potions
+  },
+};
+
+// task 38 atTheOldToad adding potion
+
+const atTheOldToad = {
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  addPotion(potionName) {
+    this.potions.push(potionName);
+  },
+};
+
+// task 39 atTheOldToad removing potion
+
+const atTheOldToad = {
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+  removePotion(potionName) {
+       const potionIndex = this.potions.indexOf(potionName);
+    this.potions.splice(potionIndex, 1);
+  },
+};
+
+// task 40 atTheOldToad changing potion name
+
+const atTheOldToad = {
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  updatePotionName(oldName, newName) {
+    const potionIndex = this.potions.indexOf(oldName);
+    this.potions.splice(potionIndex, 1, newName);
+  },
+};
+
+// task 41 refactoring code for objects
+
+const atTheOldToad = {
+  potions: [
+    { name: 'Speed potion', price: 460 },
+    { name: 'Dragon breath', price: 780 },
+    { name: 'Stone skin', price: 520 },
+  ],
+
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(potionName) {
+    if (this.potions.includes(potionName)) {
+      return `Potion ${potionName} is already equipped!`;
+    }
+
+    this.potions.push(potionName);
+  },
+  
+  removePotion(potionName) {
+    const { potions } = this;
+    for (let potion = 0; potion < potions.length; potion += 1) {
+      if (potions[potion].name === potionName) {
+        potions.splice(potion, 1);
+        return potions;
+      }
+    }
+    return `Potion ${potionName} is not in inventory!`;
+  },
+   updatePotionName(oldName, newName) {
+    const { potions } = this;
+    for (let potion = 0; potion < potions.length; potion += 1) {
+      if (potions[potion].name === oldName) {
+        potions[potion].name = newName;
+        return potions;
+      }
+    }
+    return `Potion ${oldName} is not in inventory!`;
+  },
+
+};
