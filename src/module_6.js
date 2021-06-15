@@ -254,7 +254,11 @@ const getFriends = (users) => {
   return uniqueFriends;                                         // task 21
 };
 
-const getActiveUsers = (users) => users.filter(user => user.isActive === true); // task 22
+const getActiveUsers = (users) => users.filter(user => user.isActive); // task 22
+
+const getInactiveUsers = (users) => users.filter(user => !user.isActive); // task 23
+
+
 
 
 // filter()/ find() task 15
@@ -303,5 +307,97 @@ const AUTHOR = 'Бернард Корнуэлл';
 const topRatedBooks = books.filter(book => book.rating >= MIN_RATING);
 const booksByAuthor = books.filter(book => book.author === AUTHOR);
 
+// find task 24
 
+const books = [
+  { title: 'Последнее королевство', author: 'Бернард Корнуэлл', rating: 8.38 },
+  { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+  { title: 'Сон смешного человека', author: 'Федор Достоевский', rating: 7.75 },
+  { title: 'Красна как кровь', author: 'Ли Танит', rating: 7.94 },
+];
+const BOOK_TITLE = 'Сон смешного человека';
+const AUTHOR = 'Роберт Шекли';
+
+const bookWithTitle = books.find((book) => book.title === BOOK_TITLE);
+const bookByAuthor = books.find((book) => book.author === AUTHOR);
+
+
+// find task 25
+
+const getUserWithEmail = (users, email) =>
+  users.find(user => user.email === email);
+   
+// every task 26
+
+const firstArray = [26, 94, 36, 18];
+const secondArray = [17, 61, 23];
+const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+
+
+const eachElementInFirstIsEven = firstArray.every((value) => value%2 === 0);
+const eachElementInFirstIsOdd = firstArray.every((value) => value%2 !==0);
+
+const eachElementInSecondIsEven = secondArray.every((value) => value%2 === 0);
+const eachElementInSecondIsOdd = secondArray.every((value) => value%2 !==0);
+
+const eachElementInThirdIsEven = thirdArray.every((value) => value%2 === 0);
+const eachElementInThirdIsOdd = thirdArray.every((value) => value % 2 !== 0);
+
+// every task 27
+
+const isEveryUserActive = (users) => users.every((user) => user.isActive);
+
+// some task 28
+
+const firstArray = [26, 94, 36, 18];
+const secondArray = [17, 61, 23];
+const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+
+const anyElementInFirstIsEven = firstArray.some((value) => value%2 === 0);
+const anyElementInFirstIsOdd = firstArray.some((value) => value%2 !== 0);
+
+const anyElementInSecondIsEven = secondArray.some((value) => value%2 === 0);
+const anyElementInSecondIsOdd = secondArray.some((value) => value%2 !== 0);
+
+const anyElementInThirdIsEven = thirdArray.some((value) => value%2 === 0);
+const anyElementInThirdIsOdd = thirdArray.some((value) => value % 2 !== 0);
+
+// some task 29
+
+const isAnyUserActive = users => users.some((user) => user.isActive);
+
+// reduce task 30
+
+const players = {
+  mango: 1270,
+  poly: 468,
+  ajax: 710,
+  kiwi: 244
+};
+const playtimes = Object.values(players); // [1270, 468, 710, 244]
+
+const totalPlayTime = playtimes.reduce((prevTime, playtime) => {
+	return prevTime + playtime;
+}, 0);
+
+const averagePlayTime = totalPlayTime / playtimes.length;
+
+// reduce task 31
+
+const players = [
+  { name: 'Манго', playtime: 1270, gamesPlayed: 4 },
+  { name: 'Поли', playtime: 469, gamesPlayed: 2 },
+  { name: 'Аякс', playtime: 690, gamesPlayed: 3 },
+  { name: 'Киви', playtime: 241, gamesPlayed: 1 },
+];
+
+const totalAveragePlaytimePerGame = players.reduce((avarageTotal, player) => {
+	return avarageTotal + player.playtime / player.gamesPlayed;
+}, 0);
+
+// reduce task 32
+
+const calculateTotalBalance = (users) => users.reduce((prevBalance, user) => {
+	return prevBalance + user.balance;
+}, 0);
 
